@@ -36,6 +36,7 @@ namespace MiPrimerWebApiM3
             {
                 Configuration.CreateMap<Autor, AutorDTO>();
                 Configuration.CreateMap<Libro, LibroDTO>();
+                Configuration.CreateMap<AutorCreacionDTO, Autor>();
             }, typeof(Startup));
 
             //configurar servicio personalizado

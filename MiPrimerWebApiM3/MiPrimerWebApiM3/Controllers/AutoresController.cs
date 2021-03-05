@@ -86,14 +86,16 @@ namespace MiPrimerWebApiM3.Controllers
 
         }
 
-        [HttpPost]
+        [HttpPost(Name = "")]
         //frombody indica que debe de buscar en el cuerpo de la peticion http el autor
-        public ActionResult Post([FromBody] Autor autor)
+        public async Task<ActionResult> Post([FromBody] AutorCreacionDTO autorCreacion)
         {
+            var autor = mapper.Map<Autor>(autorCreacion);
             context.Autores.Add(autor);
-            context.SaveChanges();
+            await context.SaveChangesAsync();
+            var autorDTO = mapper.Map<AutorDTO>(autor);
             //devolvemos la ruta 
-            return new CreatedAtRouteResult("ObtenerAutor", new { id = autor.Id }, autor);
+            return new CreatedAtRouteResult("ObtenerAutor", new { id = autor.Id }, autorDTO);
         }
 
         [HttpPut("{id}")]
