@@ -8,8 +8,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 using MiPrimerWebApiM3.Contexts;
+using MiPrimerWebApiM3.Entities;
 using MiPrimerWebApiM3.Helpers;
+using MiPrimerWebApiM3.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +32,12 @@ namespace MiPrimerWebApiM3
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper(Configuration =>
+            {
+                Configuration.CreateMap<Autor, AutorDTO>();
+                Configuration.CreateMap<Libro, LibroDTO>();
+            }, typeof(Startup));
+
             //configurar servicio personalizado
             services.AddScoped<MiFiltrodeAccion>();
             //configurando los servicios para la funcionalidad de guardar el cache
@@ -43,6 +52,24 @@ namespace MiPrimerWebApiM3
                options.Filters.Add(new MiFiltrodeExcepcion());
            })
                 .AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
+            services.AddSwaggerGen(options =>
+            {
+                var groupName = "v1";
+
+                options.SwaggerDoc(groupName, new OpenApiInfo
+                {
+                    Title = $"Foo {groupName}",
+                    Version = groupName,
+                    Description = "APIS {Corebit}",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "{corebit}",
+                        Email = string.Empty,
+                        Url = new Uri("https://foo.com/"),
+                    }
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,6 +81,11 @@ namespace MiPrimerWebApiM3
             }
 
             app.UseHttpsRedirection();
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "APIS {corebit}");
+            });
             //trabajar con cache
             app.UseResponseCaching();
             //trabajar con autenticacion
