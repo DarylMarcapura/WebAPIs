@@ -98,18 +98,14 @@ namespace MiPrimerWebApiM3.Controllers
             return new CreatedAtRouteResult("ObtenerAutor", new { id = autor.Id }, autorDTO);
         }
 
-        [HttpPut("{id}")]
-        public ActionResult Put(int id, [FromBody] Autor value)
+        [HttpPut("{id}")] //actualizaciones completas del recurso
+        public async Task<ActionResult> Put(int id, [FromBody] AutorCreacionDTO autorActualizacion)
         {
-            //id de la url y el recurso sean iguales
-            if (id != value.Id)
-            {
-                return BadRequest();
-            }
-            //informa que se ha modificado el valor
-            context.Entry(value).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-            context.SaveChanges();
-            return Ok();
+            var autor = mapper.Map<Autor>(autorActualizacion);
+            autor.Id = id;
+            context.Entry(autor).State = EntityState.Modified;
+            await context.SaveChangesAsync();
+            return NoContent();
         }
 
         [HttpDelete("{id}")]
