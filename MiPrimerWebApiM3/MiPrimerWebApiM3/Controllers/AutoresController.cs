@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
@@ -108,17 +109,40 @@ namespace MiPrimerWebApiM3.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{id}")]
-        public ActionResult<Autor> Delete(int id)
+        [HttpPatch("{id}")]
+        public async Task<ActionResult> Patch(int id, [FromBody] JsonPatchDocument<Autor> patchDocument)
         {
-            var autor = context.Autores.FirstOrDefault(x => x.Id == id);
-            if (autor == null)
+            if (patchDocument == null)
+            {
+                return BadRequest();
+            }
+            var autorBD = await context.Autores.FirstOrDefaultAsync(x => x.Id == id);
+            if (autorBD == null)
             {
                 return NotFound();
             }
-            context.Autores.Remove(autor);
-            context.SaveChanges();
-            return autor;
+            patchDocument.ApplyTo(autorBD, ModelState);
+            var isValid = TryValidateModel(autorBD);
+            if (!isValid)
+            {
+                return BadRequest();
+            }
+            await context.SaveChangesAsync();
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<Autor>> Delete(int id)
+        {
+            //busca solo el id de un recurso en la base de datos
+            var autorid = await context.Autores.Select(x => x.Id).FirstOrDefaultAsync(x => x == id);
+            if (autorid == default(int))
+            {
+                return NotFound();
+            }
+            context.Autores.Remove(new Autor { Id = autorid });
+            await context.SaveChangesAsync();
+            return NoContent();
         }
 
     }
