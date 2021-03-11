@@ -18,9 +18,22 @@ namespace MiPrimerWebApiM3
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
+            .ConfigureAppConfiguration((env, config) =>
+            {
+                ////configuracion de proveedores, crear prededencia
+                var ambiente = env.HostingEnvironment.EnvironmentName;
+                config.AddJsonFile($"appsettings.{ambiente}.json", optional: true, reloadOnChange: true);
+                config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+                config.AddEnvironmentVariables();
+                if (args != null)
                 {
-                    webBuilder.UseStartup<Startup>();
-                });
+                    config.AddCommandLine(args);
+                }
+
+            })
+            .ConfigureWebHostDefaults(webBuilder =>
+            {
+                webBuilder.UseStartup<Startup>();
+            });
     }
 }

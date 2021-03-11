@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,15 @@ namespace MiPrimerWebApiM3.Controllers
     [Route("api/[controller]")]
     [ApiController]
     //Solo usuarios permitidos pueden acceder a las acciones
-    [Authorize]
+    //[Authorize]
     public class ValuesController : ControllerBase
     {
+        private readonly IConfiguration configuration;
+
+        public ValuesController(IConfiguration configuration)
+        {
+            this.configuration = configuration;
+        }
         // GET api/values
         [HttpGet]
         //guardar en cache la respuesta, guarda por 15 segundos, solo funciona en firefox 
@@ -26,9 +33,12 @@ namespace MiPrimerWebApiM3.Controllers
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {
-            id++;
-            var b = id * 2;
-            return "value " + b.ToString();
+            return configuration["apellido"];
+            //acceder a la configuracion desde appsettings.json
+            //return configuration["ConnectionStrings:defaultConnectionString"];
+            //id++;
+            //var b = id * 2;
+            //return "value " + b.ToString();
         }
 
         // POST api/values
