@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DataAccess.Contexts;
+using Entities.Entities;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MiPrimerWebApiM3.Contexts;
-using MiPrimerWebApiM3.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

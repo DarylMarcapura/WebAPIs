@@ -1,3 +1,7 @@
+using DataAccess.Contexts;
+using DataAccess.Generic;
+using Entities.Entities;
+using Entities.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -9,10 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using MiPrimerWebApiM3.Contexts;
-using MiPrimerWebApiM3.Entities;
 using MiPrimerWebApiM3.Helpers;
-using MiPrimerWebApiM3.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +33,11 @@ namespace MiPrimerWebApiM3
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //agregar repositorio
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+
+
             services.AddAutoMapper(Configuration =>
             {
                 Configuration.CreateMap<Autor, AutorDTO>();

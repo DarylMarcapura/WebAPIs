@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiPrimerWebApiM3", "MiPrimerWebApiM3\MiPrimerWebApiM3.csproj", "{C07E9646-802E-433F-AB49-50409494812E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiPrimerWebApiM3", "MiPrimerWebApiM3\MiPrimerWebApiM3.csproj", "{C07E9646-802E-433F-AB49-50409494812E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{BACC5BDA-366C-4731-BEED-75082AACADFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{BFA0372A-3BB5-4914-9489-32707787AA56}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{C07E9646-802E-433F-AB49-50409494812E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C07E9646-802E-433F-AB49-50409494812E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C07E9646-802E-433F-AB49-50409494812E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BACC5BDA-366C-4731-BEED-75082AACADFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BACC5BDA-366C-4731-BEED-75082AACADFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BACC5BDA-366C-4731-BEED-75082AACADFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BACC5BDA-366C-4731-BEED-75082AACADFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFA0372A-3BB5-4914-9489-32707787AA56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFA0372A-3BB5-4914-9489-32707787AA56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFA0372A-3BB5-4914-9489-32707787AA56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFA0372A-3BB5-4914-9489-32707787AA56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

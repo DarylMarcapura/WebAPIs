@@ -1,19 +1,29 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+<<<<<<< HEAD
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+=======
+using Microsoft.AspNetCore.Mvc;
+>>>>>>> develop
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+<<<<<<< HEAD
 using Microsoft.OpenApi.Models;
+=======
+>>>>>>> develop
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+<<<<<<< HEAD
 using WebApiModulo7.Contexts;
+=======
+>>>>>>> develop
 
 namespace WebApiModulo7
 {
@@ -29,6 +39,7 @@ namespace WebApiModulo7
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+<<<<<<< HEAD
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConection")));
 
             //configuracion estandard
@@ -53,6 +64,9 @@ namespace WebApiModulo7
                     }
                 });
             });
+=======
+            services.AddControllers();
+>>>>>>> develop
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -64,11 +78,15 @@ namespace WebApiModulo7
             }
 
             app.UseHttpsRedirection();
+<<<<<<< HEAD
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "APIS {corebit}");
             });
+=======
+
+>>>>>>> develop
             app.UseRouting();
 
             app.UseAuthorization();

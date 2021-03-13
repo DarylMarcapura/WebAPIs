@@ -1,20 +1,23 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace MiPrimerWebApiM3.Migrations
+namespace DataAccess.Migrations
 {
-    public partial class Libros : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AlterColumn<string>(
-                name: "Nombre",
-                table: "Autores",
-                type: "nvarchar(max)",
-                nullable: false,
-                defaultValue: "",
-                oldClrType: typeof(string),
-                oldType: "nvarchar(max)",
-                oldNullable: true);
+            migrationBuilder.CreateTable(
+                name: "Autores",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Autores", x => x.Id);
+                });
 
             migrationBuilder.CreateTable(
                 name: "Libros",
@@ -47,13 +50,8 @@ namespace MiPrimerWebApiM3.Migrations
             migrationBuilder.DropTable(
                 name: "Libros");
 
-            migrationBuilder.AlterColumn<string>(
-                name: "Nombre",
-                table: "Autores",
-                type: "nvarchar(max)",
-                nullable: true,
-                oldClrType: typeof(string),
-                oldType: "nvarchar(max)");
+            migrationBuilder.DropTable(
+                name: "Autores");
         }
     }
 }
