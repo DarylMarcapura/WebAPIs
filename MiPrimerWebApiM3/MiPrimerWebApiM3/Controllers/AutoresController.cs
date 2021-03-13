@@ -1,13 +1,14 @@
 ﻿using AutoMapper;
+using DataAccess.Contexts;
+using DataAccess.Generic;
+using Entities.Entities;
+using Entities.Models;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using MiPrimerWebApiM3.Contexts;
-using MiPrimerWebApiM3.Entities;
 using MiPrimerWebApiM3.Helpers;
-using MiPrimerWebApiM3.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,12 +24,19 @@ namespace MiPrimerWebApiM3.Controllers
         private readonly ApplicationDbContext context;
         private readonly ILogger<AutoresController> logger;
         private readonly IMapper mapper;
+        private readonly IGenericRepository<Autor> genericRepository;
+        private readonly IUnitOfWork unitOfWork;
 
-        public AutoresController(ApplicationDbContext context, ILogger<AutoresController> logger, IMapper mapper)
+        public AutoresController(ApplicationDbContext context,
+            ILogger<AutoresController> logger, IMapper mapper,
+            IGenericRepository<Autor> genericRepository,
+            IUnitOfWork unitOfWork)
         {
             this.context = context;
             this.logger = logger;
             this.mapper = mapper;
+            this.genericRepository = genericRepository;
+            this.unitOfWork = unitOfWork;
         }
 
         //multiples endpoins 
@@ -47,10 +55,12 @@ namespace MiPrimerWebApiM3.Controllers
         }
 
         //combinacion de ruta mas un prefijo
-        [HttpGet("Primer")]
-        public ActionResult<Autor> GetPrimer()
+        [HttpGet("repositorio")]
+        public async Task<IEnumerable<Autor>> GetPrimer()
         {
-            return context.Autores.FirstOrDefault();
+            //return await context.Autores.FirstOrDefaultAsync();
+            return await genericRepository.GetAsync(x => x.Id == 1);
+
         }
 
         ////simbolo de interrogacion para indicar que son parametros opcionales

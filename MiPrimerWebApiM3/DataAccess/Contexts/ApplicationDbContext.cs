@@ -1,11 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
-using MiPrimerWebApiM3.Entities;
+﻿using Entities.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace MiPrimerWebApiM3.Contexts
+namespace DataAccess.Contexts
 {
     public class ApplicationDbContext : DbContext
     {
