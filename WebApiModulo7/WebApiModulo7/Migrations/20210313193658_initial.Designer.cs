@@ -10,8 +10,8 @@ using WebApiModulo7.Contexts;
 namespace WebApiModulo7.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210311005719_sistema_login")]
-    partial class sistema_login
+    [Migration("20210313193658_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

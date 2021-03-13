@@ -46,7 +46,7 @@ namespace WebApiModulo7.Controllers
             var result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
-                return BuildToken(model);
+                return BuildToken(model, new List<string>());
             }
             else
             {
@@ -60,7 +60,9 @@ namespace WebApiModulo7.Controllers
             var result = await _signInManager.PasswordSignInAsync(userInfo.Email, userInfo.Password, false, false);
             if (result.Succeeded)
             {
-                return BuildToken(userInfo);
+                var usuario = await _userManager.FindByEmailAsync(userInfo.Email);
+                var roles = await _userManager.GetRolesAsync(usuario);
+                return BuildToken(userInfo, roles);
             }
             else
             {
@@ -71,15 +73,21 @@ namespace WebApiModulo7.Controllers
         }
 
 
-        private UserToken BuildToken(UserInfo userInfo)
+        private UserToken BuildToken(UserInfo userInfo, IList<string> roles)
         {
             //informaciones confiables que van a viajar en el token
-            var claims = new[] {
+            var claims = new List<Claim> {
                 new Claim(JwtRegisteredClaimNames.UniqueName, userInfo.Email),
                 new Claim("MiValor", "Lo que yo quiera"),
                 //identificar de manera unica un token
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };
+            //agregar todos los roles al usuario
+            foreach (var rol in roles)
+            {
+                claims.Add(new Claim(ClaimTypes.Role, rol));
+            }
+
             //llave simetrica de seguridad, nos sirve para poder garantizar la autenticidad
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:key"]));
             //credenciales

@@ -21,10 +21,14 @@ namespace WebApiModulo7.Contexts
             //Creando roles, https://www.guidgenerator.com/
             var roleAdmin = new IdentityRole()
             {
-                Id = "",
+                Id = "d1712ed5-1767-425c-b1ce-17bfe54d17f9",
                 Name = "admin",
                 NormalizedName = "admin"
             };
+
+            //crear una migracion
+            builder.Entity<IdentityRole>().HasData(roleAdmin);
+
             base.OnModelCreating(builder);
         }
     }

@@ -34,7 +34,11 @@ D:\3 Proyectos\Net Core\WebApiModulo7\WebApiModulo7\bin\Debug\netcoreapp3.1\Micr
 D:\3 Proyectos\Net Core\WebApiModulo7\WebApiModulo7\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
 D:\3 Proyectos\Net Core\WebApiModulo7\WebApiModulo7\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 D:\3 Proyectos\Net Core\WebApiModulo7\WebApiModulo7\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+D:\3 Proyectos\Net Core\WebApiModulo7\WebApiModulo7\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
 D:\3 Proyectos\Net Core\WebApiModulo7\WebApiModulo7\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\3 Proyectos\Net Core\WebApiModulo7\WebApiModulo7\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+D:\3 Proyectos\Net Core\WebApiModulo7\WebApiModulo7\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\3 Proyectos\Net Core\WebApiModulo7\WebApiModulo7\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
 D:\3 Proyectos\Net Core\WebApiModulo7\WebApiModulo7\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
 D:\3 Proyectos\Net Core\WebApiModulo7\WebApiModulo7\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll
 D:\3 Proyectos\Net Core\WebApiModulo7\WebApiModulo7\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
@@ -57,6 +61,7 @@ D:\3 Proyectos\Net Core\WebApiModulo7\WebApiModulo7\bin\Debug\netcoreapp3.1\runt
 D:\3 Proyectos\Net Core\WebApiModulo7\WebApiModulo7\obj\Debug\netcoreapp3.1\WebApiModulo7.AssemblyInfoInputs.cache
 D:\3 Proyectos\Net Core\WebApiModulo7\WebApiModulo7\obj\Debug\netcoreapp3.1\WebApiModulo7.AssemblyInfo.cs
 D:\3 Proyectos\Net Core\WebApiModulo7\WebApiModulo7\obj\Debug\netcoreapp3.1\WebApiModulo7.csproj.CoreCompileInputs.cache
+D:\3 Proyectos\Net Core\WebApiModulo7\WebApiModulo7\obj\Debug\netcoreapp3.1\WebApiModulo7.MvcApplicationPartsAssemblyInfo.cs
 D:\3 Proyectos\Net Core\WebApiModulo7\WebApiModulo7\obj\Debug\netcoreapp3.1\WebApiModulo7.MvcApplicationPartsAssemblyInfo.cache
 D:\3 Proyectos\Net Core\WebApiModulo7\WebApiModulo7\obj\Debug\netcoreapp3.1\staticwebassets\WebApiModulo7.StaticWebAssets.Manifest.cache
 D:\3 Proyectos\Net Core\WebApiModulo7\WebApiModulo7\obj\Debug\netcoreapp3.1\staticwebassets\WebApiModulo7.StaticWebAssets.xml
@@ -66,9 +71,4 @@ D:\3 Proyectos\Net Core\WebApiModulo7\WebApiModulo7\obj\Debug\netcoreapp3.1\WebA
 D:\3 Proyectos\Net Core\WebApiModulo7\WebApiModulo7\obj\Debug\netcoreapp3.1\WebApiModulo7.dll
 D:\3 Proyectos\Net Core\WebApiModulo7\WebApiModulo7\obj\Debug\netcoreapp3.1\WebApiModulo7.pdb
 D:\3 Proyectos\Net Core\WebApiModulo7\WebApiModulo7\obj\Debug\netcoreapp3.1\WebApiModulo7.genruntimeconfig.cache
-D:\3 Proyectos\Net Core\WebApiModulo7\WebApiModulo7\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
-D:\3 Proyectos\Net Core\WebApiModulo7\WebApiModulo7\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
-D:\3 Proyectos\Net Core\WebApiModulo7\WebApiModulo7\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
-D:\3 Proyectos\Net Core\WebApiModulo7\WebApiModulo7\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
 D:\3 Proyectos\Net Core\WebApiModulo7\WebApiModulo7\obj\Debug\netcoreapp3.1\WebApiModulo7.csprojAssemblyReference.cache
-D:\3 Proyectos\Net Core\WebApiModulo7\WebApiModulo7\obj\Debug\netcoreapp3.1\WebApiModulo7.MvcApplicationPartsAssemblyInfo.cs

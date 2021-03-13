@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xMHC3E/+cIT8/NT8SM0MF5ho6omorFY5HBVw1xq3rcTNEUJmVBg7Bqw6fj3iZKrR7on1xUz466TZjMyAoCTJxg==",
+  "dgSpecHash": "Zs/x+6aZGzx9X8Fpb7netDlPzCBfB7EsxvD4IsWZVc0qlKObnJcHtRQHQCKEmnTY6oFHTAaJOm/mCNs5+AIzIg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ddk_s\\Desktop\\WebApiModulo7\\WebApiModulo7\\WebApiModulo7.csproj",
+  "projectFilePath": "D:\\3 Proyectos\\Net Core\\WebApiModulo7\\WebApiModulo7\\WebApiModulo7.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ddk_s\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\ddk_s\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.13\\microsoft.aspnetcore.authentication.jwtbearer.3.1.13.nupkg.sha512",

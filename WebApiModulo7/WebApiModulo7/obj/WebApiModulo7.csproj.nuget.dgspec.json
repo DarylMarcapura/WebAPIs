@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ddk_s\\Desktop\\WebApiModulo7\\WebApiModulo7\\WebApiModulo7.csproj": {}
+    "D:\\3 Proyectos\\Net Core\\WebApiModulo7\\WebApiModulo7\\WebApiModulo7.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ddk_s\\Desktop\\WebApiModulo7\\WebApiModulo7\\WebApiModulo7.csproj": {
+    "D:\\3 Proyectos\\Net Core\\WebApiModulo7\\WebApiModulo7\\WebApiModulo7.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ddk_s\\Desktop\\WebApiModulo7\\WebApiModulo7\\WebApiModulo7.csproj",
+        "projectUniqueName": "D:\\3 Proyectos\\Net Core\\WebApiModulo7\\WebApiModulo7\\WebApiModulo7.csproj",
         "projectName": "WebApiModulo7",
-        "projectPath": "C:\\Users\\ddk_s\\Desktop\\WebApiModulo7\\WebApiModulo7\\WebApiModulo7.csproj",
+        "projectPath": "D:\\3 Proyectos\\Net Core\\WebApiModulo7\\WebApiModulo7\\WebApiModulo7.csproj",
         "packagesPath": "C:\\Users\\ddk_s\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ddk_s\\Desktop\\WebApiModulo7\\WebApiModulo7\\obj\\",
+        "outputPath": "D:\\3 Proyectos\\Net Core\\WebApiModulo7\\WebApiModulo7\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ddk_s\\AppData\\Roaming\\NuGet\\NuGet.Config",
