@@ -14,7 +14,7 @@ namespace DataAccess.Generic
         Task<IEnumerable<T>> GetAsync(Expression<Func<T, bool>> whereCondition = null,
                            Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
                            string includeProperties = "");
-        Task<bool> CreateAsync(T entity);
+        Task<bool> AddAsync(T entity);
     }
 
     public class GenericRepository<T> : IGenericRepository<T> where T : class
@@ -57,7 +57,7 @@ namespace DataAccess.Generic
             }
         }
 
-        public async Task<bool> CreateAsync(T entity)
+        public async Task<bool> AddAsync(T entity)
         {
             bool created = false;
 
@@ -73,6 +73,42 @@ namespace DataAccess.Generic
                 throw;
             }
             return created;
+        }
+        public async Task<T> GetById(int id)
+        {
+            return await _unitOfWork.Context.Set<T>().FindAsync(id);
+        }
+        public async Task<T> Get(int id)
+        {
+            return await _unitOfWork.Context.Set<T>().FindAsync(id);
+        }
+        public async Task<IEnumerable<T>> GetAll()
+        {
+            return await _unitOfWork.Context.Set<T>().ToListAsync();
+        }
+        public async Task Add(T entity)
+        {
+            await _unitOfWork.Context.Set<T>().AddAsync(entity);
+        }
+        public async Task AddRange(IEnumerable<T> entities)
+        {
+            await _unitOfWork.Context.Set<T>().AddRangeAsync(entities);
+        }
+        public void Delete(T entity)
+        {
+            _unitOfWork.Context.Set<T>().Remove(entity);
+        }
+        public void RemoveRange(IEnumerable<T> entities)
+        {
+            _unitOfWork.Context.Set<T>().RemoveRange(entities);
+        }
+        public void Update(T entity)
+        {
+            _unitOfWork.Context.Set<T>().Update(entity);
+        }
+        public IEnumerable<T> Find(Expression<Func<T, bool>> expression)
+        {
+            return _unitOfWork.Context.Set<T>().Where(expression);
         }
     }
 }
