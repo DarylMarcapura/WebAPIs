@@ -4,7 +4,6 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
-<<<<<<< HEAD
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.13" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.4" />
@@ -20,7 +19,5 @@
     <Folder Include="Services\" />
   </ItemGroup>
 
-=======
->>>>>>> develop
 
 </Project>

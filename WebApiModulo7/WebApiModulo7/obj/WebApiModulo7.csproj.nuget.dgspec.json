@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\3 Proyectos\\Net Core\\WebApiModulo7\\WebApiModulo7\\WebApiModulo7.csproj": {}
+    "C:\\Users\\ddk_s\\Desktop\\WebApiModulo7\\WebApiModulo7\\WebApiModulo7.csproj": {}
   },
   "projects": {
-    "D:\\3 Proyectos\\Net Core\\WebApiModulo7\\WebApiModulo7\\WebApiModulo7.csproj": {
+    "C:\\Users\\ddk_s\\Desktop\\WebApiModulo7\\WebApiModulo7\\WebApiModulo7.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\3 Proyectos\\Net Core\\WebApiModulo7\\WebApiModulo7\\WebApiModulo7.csproj",
+        "projectUniqueName": "C:\\Users\\ddk_s\\Desktop\\WebApiModulo7\\WebApiModulo7\\WebApiModulo7.csproj",
         "projectName": "WebApiModulo7",
-        "projectPath": "D:\\3 Proyectos\\Net Core\\WebApiModulo7\\WebApiModulo7\\WebApiModulo7.csproj",
+        "projectPath": "C:\\Users\\ddk_s\\Desktop\\WebApiModulo7\\WebApiModulo7\\WebApiModulo7.csproj",
         "packagesPath": "C:\\Users\\ddk_s\\.nuget\\packages\\",
-        "outputPath": "D:\\3 Proyectos\\Net Core\\WebApiModulo7\\WebApiModulo7\\obj\\",
+        "outputPath": "C:\\Users\\ddk_s\\Desktop\\WebApiModulo7\\WebApiModulo7\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ddk_s\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,19 +40,11 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
-<<<<<<< HEAD
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[3.1.13, )"
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
-=======
-            "AutoMapper": {
-              "target": "Package",
-              "version": "[10.1.1, )"
-            },
-            "Microsoft.EntityFrameworkCore": {
->>>>>>> develop
               "target": "Package",
               "version": "[5.0.4, )"
             },
