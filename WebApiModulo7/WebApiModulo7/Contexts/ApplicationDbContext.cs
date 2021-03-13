@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,18 @@ namespace WebApiModulo7.Contexts
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
 
+        }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            //Creando roles, https://www.guidgenerator.com/
+            var roleAdmin = new IdentityRole()
+            {
+                Id = "",
+                Name = "admin",
+                NormalizedName = "admin"
+            };
+            base.OnModelCreating(builder);
         }
     }
 }
