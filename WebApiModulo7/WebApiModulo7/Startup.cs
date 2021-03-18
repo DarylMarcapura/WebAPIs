@@ -33,17 +33,58 @@ namespace WebApiModulo7
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //encriptacion para usar los servicios
+            services.AddDataProtection();
+
+            //agregando cors
+            services.AddCors(options =>
+            {
+                options.AddPolicy("PermitirApiRequest",
+                    builder => builder.WithOrigins("http://www.apirequest.io")
+                );
+            });
+            //servicio hash
+            services.AddScoped<HashService>();
+            services.AddDataProtection();
+
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConection")));
 
             //configuracion estandard
             services.AddIdentity<Models.ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
+
+
+
             services.AddControllers();
             services.AddSwaggerGen(options =>
             {
                 var groupName = "v1";
+                OpenApiSecurityScheme securityDefinition = new OpenApiSecurityScheme()
+                {
+                    Name = "Bearer",
+                    BearerFormat = "JWT",
+                    Scheme = "bearer",
+                    Description = "Specify the authorization token.",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.Http,
+                };
+                options.AddSecurityDefinition("jwt_auth", securityDefinition);
 
+                // Make sure swagger UI requires a Bearer token specified
+                OpenApiSecurityScheme securityScheme = new OpenApiSecurityScheme()
+                {
+                    Reference = new OpenApiReference()
+                    {
+                        Id = "jwt_auth",
+                        Type = ReferenceType.SecurityScheme
+                    }
+                };
+                OpenApiSecurityRequirement securityRequirements = new OpenApiSecurityRequirement()
+                {
+                    {securityScheme, new string[] { }},
+                };
+                options.AddSecurityRequirement(securityRequirements);
                 options.SwaggerDoc(groupName, new OpenApiInfo
                 {
                     Title = $"Foo {groupName}",
@@ -57,9 +98,8 @@ namespace WebApiModulo7
                     }
                 });
             });
-            services.AddScoped<HashService>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-.AddJwtBearer(options =>
+                .AddJwtBearer(options =>
                  options.TokenValidationParameters = new TokenValidationParameters
                  {
                      ValidateIssuer = false,
@@ -79,8 +119,11 @@ namespace WebApiModulo7
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            //configurar los origenes que si pueden hacer peticiones http a nuestro web api
+            app.UseCors();
+            //redirigir direcciones http a https
             app.UseHttpsRedirection();
+
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
